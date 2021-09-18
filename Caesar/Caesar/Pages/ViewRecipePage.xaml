@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Caesar.Data;assembly=Caesar"
+             x:Class="Caesar.Pages.ViewRecipePage"
+             NavigationPage.HasNavigationBar="False">
+
+
+    <StackLayout x:Name="RecipeLayout" x:DataType="model:Recipe">
+        <Label Text="{Binding Label}" FontSize="Large"  HorizontalOptions="CenterAndExpand" Padding="5"/>
+        <Image Source="{Binding Image}" />
+        <Label Text="{Binding Url}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding Url}" />
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Text="You'll need..." />
+        <ListView 
+            x:Name="ingredientsView"
+            VerticalOptions="FillAndExpand" 
+            CachingStrategy="RecycleElement" /> 
+    </StackLayout>
+</ContentPage>
