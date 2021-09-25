@@ -8,7 +8,14 @@
              Title="{Binding Label}"
              >
 
-    <StackLayout x:Name="RecipeLayout" Padding="10">
+    <StackLayout 
+        x:Name="RecipeLayout" 
+        Padding="10"
+        BackgroundColor="{DynamicResource AppBackgroundColor}"
+    >
+        <StackLayout.Resources>
+            
+        </StackLayout.Resources>
         <Image Source="{Binding Image}" />
         <Label Text="{Binding Url}">
             <Label.GestureRecognizers>
@@ -20,6 +27,6 @@
             ItemsSource="{Binding IngredientLines}"
             x:Name="ingredientsView"
             VerticalOptions="FillAndExpand" 
-            CachingStrategy="RecycleElement" /> 
+            CachingStrategy="RecycleElement"/>
     </StackLayout>
 </ContentPage>

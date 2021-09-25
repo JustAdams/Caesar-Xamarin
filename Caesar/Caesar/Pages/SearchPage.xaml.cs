@@ -23,6 +23,7 @@ namespace Caesar
 
         async void OnViewRecipe(object sender, ItemTappedEventArgs e)
         {
+            var selectedRecipe = e.Item;
             await Navigation.PushAsync(new NavigationPage(new ViewRecipePage((Data.Recipe)e.Item)));
         }
 

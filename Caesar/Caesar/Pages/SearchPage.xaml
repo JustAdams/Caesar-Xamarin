@@ -1,14 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="Caesar.SearchPage"
              NavigationPage.HasNavigationBar="False"
              >
 
-    <StackLayout>
-        <Image Source="Resources/CaesarLogo.png" HeightRequest="100" Margin="10" />
+    <StackLayout
+        BackgroundColor="#EFEFDC">
+        <pancakeview:PancakeView
+            BackgroundColor="{DynamicResource PrimaryPurple}"
+            Border="{pancakeview:BorderMarkup Color=#39B54A, Thickness=15}"
+            CornerRadius="100, 0, 0, 100"
+            Padding="5"
+            Margin="10"
+        >
+            <Image Source="Resources/CaesarLogo.png" HeightRequest="100" Margin="10" />
+        </pancakeview:PancakeView>
         
-        <Entry x:Name="ingredientsEntry" Placeholder="Enter ingredients..." />
+        <Entry 
+            x:Name="ingredientsEntry" 
+            Placeholder="Enter ingredients..." 
+            PlaceholderColor="{DynamicResource PrimaryPurple}"
+            TextColor="{DynamicResource PrimaryPurple}"
+        />
         <Button 
             x:Name="searchButton"
             Text="Search" 
@@ -19,7 +33,11 @@
             >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ImageCell ImageSource="{Binding Image}" Text="{Binding Label}" />
+                    <ImageCell 
+                        DetailColor="AliceBlue"
+                        TextColor="{DynamicResource PrimaryPurple}"
+                        
+                        ImageSource="{Binding Image}" Text="{Binding Label}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
