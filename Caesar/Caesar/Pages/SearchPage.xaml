@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Caesar.MainPage"
-             NavigationPage.HasNavigationBar="False">
+             x:Class="Caesar.SearchPage"
+             NavigationPage.HasNavigationBar="False"
+             >
 
     <StackLayout>
         <Image Source="Resources/CaesarLogo.png" HeightRequest="100" Margin="10" />

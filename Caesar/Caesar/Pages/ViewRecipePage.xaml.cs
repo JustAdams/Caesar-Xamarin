@@ -20,7 +20,6 @@ namespace Caesar.Pages
             Recipe = recipe;
 
             RecipeLayout.BindingContext = Recipe;
-            ingredientsView.ItemsSource = Recipe.IngredientLines;
         }
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)

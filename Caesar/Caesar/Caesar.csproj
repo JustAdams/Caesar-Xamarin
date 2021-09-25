@@ -26,4 +26,10 @@
   <ItemGroup>
     <Folder Include="Data\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

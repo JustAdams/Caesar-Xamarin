@@ -1,8 +1,6 @@
 ﻿//using Caesar.Data;
 using Caesar.Data;
-using Caesar.Model;
 using Caesar.Pages;
-using Caesar.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,11 +11,11 @@ using Xamarin.Forms;
 
 namespace Caesar
 {
-    public partial class MainPage : ContentPage
+    public partial class SearchPage : ContentPage
     {
         public IList<Data.Recipe> recipes = new ObservableCollection<Data.Recipe>();
 
-        public MainPage()
+        public SearchPage()
         {
             BindingContext = recipes;
             InitializeComponent();
@@ -57,7 +55,7 @@ namespace Caesar
                 RequestUri = new Uri($"https://edamam-recipe-search.p.rapidapi.com/search?q={inputString}"),
                 Headers =
                 {
-                    { "x-rapidapi-key", "edmamam-api-goes-here" },
+                    { "x-rapidapi-key", "your-edamam-api-here" },
                     { "x-rapidapi-host", "edamam-recipe-search.p.rapidapi.com" },
                 },
             };

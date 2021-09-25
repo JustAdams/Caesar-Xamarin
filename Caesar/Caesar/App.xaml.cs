@@ -11,7 +11,7 @@ namespace Caesar
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new SearchPage());
         }
 
         protected override void OnStart()
