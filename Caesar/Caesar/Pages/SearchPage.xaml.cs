@@ -1,6 +1,7 @@
 ﻿//using Caesar.Data;
 using Caesar.Data;
 using Caesar.Pages;
+using Caesar.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -23,14 +24,16 @@ namespace Caesar
 
         async void OnViewRecipe(object sender, ItemTappedEventArgs e)
         {
-            var selectedRecipe = e.Item;
             await Navigation.PushAsync(new NavigationPage(new ViewRecipePage((Data.Recipe)e.Item)));
+        }
+
+        async void CreateRecipe(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NavigationPage(new CreateRecipePage()));
         }
 
         public async void SearchRecipes(object sender, EventArgs e)
         {
-            
-       
             string input = ingredientsEntry.Text;
 
             // User input check
@@ -46,38 +49,21 @@ namespace Caesar
 
             // Get rid of the leading %20
             inputString.Remove(0, 2);
-            
 
-            // External API stuff
-            HttpClient client = new HttpClient();
-            HttpRequestMessage request = new HttpRequestMessage
+            HttpRequestService service = new HttpRequestService();
+
+            var body = await service.RecipeRequest(inputString);
+
+            RecipeResponse recipeResponse = JsonConvert.DeserializeObject<RecipeResponse>(body);
+
+            // Reset the recipes collection for each search
+            recipes.Clear();
+
+            foreach (var recipe in recipeResponse.Hits)
             {
-                Method = HttpMethod.Get,
-                RequestUri = new Uri($"https://edamam-recipe-search.p.rapidapi.com/search?q={inputString}"),
-                Headers =
-                {
-                    { "x-rapidapi-key", "your-edamam-api-here" },
-                    { "x-rapidapi-host", "edamam-recipe-search.p.rapidapi.com" },
-                },
-            };
-            using (var response = await client.SendAsync(request))
-            {
-                response.EnsureSuccessStatusCode();
-                string body = await response.Content.ReadAsStringAsync();
-
-                RecipeResponse recipeResponse = JsonConvert.DeserializeObject<RecipeResponse>(body);
-
-                // Reset the recipes collection for each search
-                recipes.Clear();
-
-                foreach (var recipe in recipeResponse.Hits)
-                {
-                    recipes.Add(recipe.Recipe);
-                }
-                
-
+                recipes.Add(recipe.Recipe);
             }
-            
+
         }
     }
 

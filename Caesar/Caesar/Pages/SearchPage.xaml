@@ -2,45 +2,74 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="Caesar.SearchPage"
+             
              NavigationPage.HasNavigationBar="False"
              >
 
-    <StackLayout
-        BackgroundColor="#EFEFDC">
+    <Grid 
+        BackgroundColor="{StaticResource AppBackgroundColor}"
+        Padding="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".2*"/>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".6*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
         <pancakeview:PancakeView
-            BackgroundColor="{DynamicResource PrimaryPurple}"
+            BackgroundColor="{StaticResource PrimaryPurple}"
             Border="{pancakeview:BorderMarkup Color=#39B54A, Thickness=15}"
             CornerRadius="100, 0, 0, 100"
-            Padding="5"
-            Margin="10"
-        >
-            <Image Source="Resources/CaesarLogo.png" HeightRequest="100" Margin="10" />
+                Grid.Row="0"
+                Grid.ColumnSpan="2">
+            <Image 
+                Source="Resources/CaesarLogo.png" 
+                HeightRequest="100" 
+                Margin="10"/>
         </pancakeview:PancakeView>
         
         <Entry 
             x:Name="ingredientsEntry" 
             Placeholder="Enter ingredients..." 
-            PlaceholderColor="{DynamicResource PrimaryPurple}"
-            TextColor="{DynamicResource PrimaryPurple}"
-        />
+            PlaceholderColor="{StaticResource PrimaryPurple}"
+            TextColor="{StaticResource PrimaryPurple}"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"/>
+
         <Button 
             x:Name="searchButton"
             Text="Search" 
-            Clicked="SearchRecipes" />
+            Clicked="SearchRecipes"
+            Grid.Row="2"
+            Grid.Column="0"/>
+
+        <Button 
+            x:Name="createButton"
+            Text="Create" 
+            Clicked="CreateRecipe"
+            Grid.Row="2"
+            Grid.Column="1"/>
+
         <ListView 
             ItemsSource="{Binding}"
             ItemTapped="OnViewRecipe"
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
             >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ImageCell 
                         DetailColor="AliceBlue"
-                        TextColor="{DynamicResource PrimaryPurple}"
+                        TextColor="{StaticResource PrimaryPurple}"
                         
                         ImageSource="{Binding Image}" Text="{Binding Label}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>
+    </Grid>
 
 </ContentPage>

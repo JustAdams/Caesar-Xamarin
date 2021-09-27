@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Caesar.Pages.CreateRecipePage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".2*"/>
+                <RowDefinition Height=".2*"/>
+                <RowDefinition Height=".6*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".8*"/>
+                <ColumnDefinition Width=".2*"/>
+            </Grid.ColumnDefinitions>
+            <Entry
+                Placeholder="Recipe Name"
+                Grid.Row="0"
+                Grid.ColumnSpan="2"/>
+            <Entry
+                x:Name="ingredientEntry"
+                Placeholder="Ingredient"
+                Grid.Row="1"
+                Grid.Column="0" />
+            <Button
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="➕"
+                Clicked="AddIngredientHandler"/>
+            <ListView 
+                HorizontalOptions="Center"
+                Grid.Row="2"
+                SelectionMode="None"
+                Grid.ColumnSpan="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell 
+                            Text="Ingredient Name" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

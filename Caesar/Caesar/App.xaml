@@ -8,5 +8,6 @@
         <Color x:Key="AppBackgroundColor">#EFEFDC</Color>
         <Color x:Key="PrimaryPurple">#851E53</Color>
         <Color x:Key="PrimaryGreen">#39B54A</Color>
+        
     </Application.Resources>
 </Application>
