@@ -27,6 +27,7 @@
             ItemsSource="{Binding IngredientLines}"
             x:Name="ingredientsView"
             VerticalOptions="FillAndExpand" 
+            SelectionMode="None"
             CachingStrategy="RecycleElement"/>
     </StackLayout>
 </ContentPage>

@@ -59,6 +59,7 @@
             ItemTapped="OnViewRecipe"
             Grid.Row="3"
             Grid.ColumnSpan="2"
+            SelectionMode="None"
             >
             <ListView.ItemTemplate>
                 <DataTemplate>
