@@ -16,12 +16,11 @@
         <StackLayout.Resources>
             
         </StackLayout.Resources>
+        <Label 
+            HorizontalOptions="Center"
+            FontSize="Large"
+            Text="{Binding Label}"/>
         <Image Source="{Binding Image}" />
-        <Label Text="{Binding Url}">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding Url}" />
-            </Label.GestureRecognizers>
-        </Label>
         <Label Text="You'll need..." />
         <ListView 
             ItemsSource="{Binding IngredientLines}"
@@ -29,5 +28,10 @@
             VerticalOptions="FillAndExpand" 
             SelectionMode="None"
             CachingStrategy="RecycleElement"/>
+        <Label Text="{Binding Url}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding Url}" />
+            </Label.GestureRecognizers>
+        </Label>
     </StackLayout>
 </ContentPage>
