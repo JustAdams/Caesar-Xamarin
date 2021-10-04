@@ -11,7 +11,7 @@
     <StackLayout 
         x:Name="RecipeLayout" 
         Padding="10"
-        BackgroundColor="{DynamicResource AppBackgroundColor}"
+        BackgroundColor="{StaticResource AppBackgroundColor}"
     >
         <StackLayout.Resources>
             

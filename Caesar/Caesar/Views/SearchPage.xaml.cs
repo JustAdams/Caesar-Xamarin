@@ -7,14 +7,13 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net.Http;
 using Xamarin.Forms;
 
 namespace Caesar
 {
     public partial class SearchPage : ContentPage
     {
-        public IList<Data.Recipe> recipes = new ObservableCollection<Data.Recipe>();
+        public IList<Recipe> recipes = new ObservableCollection<Recipe>();
 
         public SearchPage()
         {
@@ -24,12 +23,12 @@ namespace Caesar
 
         async void OnViewRecipe(object sender, ItemTappedEventArgs e)
         {
-            await Navigation.PushAsync(new NavigationPage(new ViewRecipePage((Data.Recipe)e.Item)));
+            await Navigation.PushModalAsync(new ViewRecipePage((Recipe)e.Item));
         }
 
         async void CreateRecipe(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NavigationPage(new CreateRecipePage()));
+            await Navigation.PushModalAsync(new CreateRecipePage());
         }
 
         public async void SearchRecipes(object sender, EventArgs e)
