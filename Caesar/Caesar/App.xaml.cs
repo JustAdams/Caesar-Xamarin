@@ -1,4 +1,5 @@
 ﻿using Caesar.Pages;
+using Caesar.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace Caesar
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new SearchPage());
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
